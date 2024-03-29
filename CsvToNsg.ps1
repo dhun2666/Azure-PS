@@ -1,8 +1,8 @@
 #command line input for NSG name, resource group
 
-$nsgname = Read-Host -Prompt 'Input your NSG name'
-$resourcegroup = Read-Host -Prompt 'Input your NSG resourcegroup name'
-$csv = Read-Host -Prompt 'Input csv file name that has rules to add'
+$nsgname = Read-Host -Prompt 'Input name of NSG'
+$resourcegroup = Read-Host -Prompt 'Input resourcegroup of NSG'
+$csv = Read-Host -Prompt 'Input name of csv (without ".csv")'
 
 
 $nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $resourcegroup

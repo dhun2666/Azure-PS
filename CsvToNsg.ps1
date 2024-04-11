@@ -17,11 +17,12 @@ foreach($rule in $readObj)
            -DestinationAddressPrefix $rule.DestinationAddressPrefix.split(" ") -DestinationPortRange $rule.DestinationPortRange.split(" ") | Out-Null
     If ($?)
     {
-    echo "No error"
+    
     }
     Else
     {
-    echo "Error"
+    $nsg | Remove-AzNetworkSecurityRuleConfig -Name $rule.Name `
+    -NetworkSecurityGroup $nsg
     }
 }
 

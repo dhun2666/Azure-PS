@@ -15,6 +15,14 @@ foreach($rule in $readObj)
            -Access $rule.Access -Protocol $rule.Protocol -Direction $rule.direction -Priority $rule.priority `
            -SourceAddressPrefix $rule.SourceAddressPrefix.split(" ")  -SourcePortRange $rule.SourcePortRange.split(" ")`
            -DestinationAddressPrefix $rule.DestinationAddressPrefix.split(" ") -DestinationPortRange $rule.DestinationPortRange.split(" ") | Out-Null
+    If ($?)
+    {
+    echo "No error"
+    }
+    Else
+    {
+    echo "Error"
+    }
 }
 
 $nsg | Set-AzNetworkSecurityGroup #| Out-Null
